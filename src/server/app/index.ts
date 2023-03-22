@@ -1,5 +1,5 @@
 import fastify, { FastifyInstance } from 'fastify';
-import { BaseRoute } from '../routes/baseRoute';
+import { BaseRoute } from './routes/baseRoute';
 
 /**
  * @description Create fastify App
@@ -13,7 +13,7 @@ class App {
     const app: FastifyInstance = fastify({});
 
     // Declare a route
-    await app.register(BaseRoute);
+    await app.register(BaseRoute.get);
     // app.get('/', async () => ({ hello: 'world' }));
 
     // Run the server!
