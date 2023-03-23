@@ -1,0 +1,6 @@
+runtime: nodejs16
+
+env_variables:
+  SERVER_PORT: 3000
+  SERVER_HOST: localhost
+  XFROM: dawProyectXFROM
