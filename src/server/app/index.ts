@@ -13,7 +13,7 @@ class App {
     const app: FastifyInstance = fastify({});
 
     // Declare a route
-    await app.register(BaseRoute.get);
+    await app.register(BaseRoute.setRoutes);
     // app.get('/', async () => ({ hello: 'world' }));
 
     // Run the server!
