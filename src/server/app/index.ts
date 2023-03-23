@@ -6,7 +6,7 @@ import { BaseRoute } from './routes/baseRoute';
  */
 class App {
   static async run(
-    host: string,
+    path: string,
     port: number,
   ): Promise<void> {
     // Require the framework and instantiate it
@@ -17,9 +17,9 @@ class App {
     // app.get('/', async () => ({ hello: 'world' }));
 
     // Run the server!
-    app.listen({ host, port });
+    app.listen({ port, path });
 
-    console.log(`server listenning on ${host} with port ${port}`);
+    console.log(`server listenning on ${path} with port ${port}`);
   }
 }
 
