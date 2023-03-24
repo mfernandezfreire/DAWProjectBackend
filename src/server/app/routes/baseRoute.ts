@@ -1,3 +1,5 @@
+import * as mysql from 'mysql2/promise';
+
 import { FastifyInstance } from 'fastify';
 import { BaseMiddelware } from '../middlewares/base';
 
@@ -14,7 +16,22 @@ export class BaseRoute {
         BaseMiddelware.onRequest(request, reply);
       },
       handler: async (request, reply) => {
-        reply.send({ hello: 'world' });
+        const connection = mysql.createPool({
+          // host: '34.175.155.3',
+          user: 'root',
+          password: 'nuncamais',
+          socketPath: '/cloudsql/daw-project-381621:europe-west1:daw-project-instance',
+        });
+
+        let result;
+
+        try {
+          result = await connection.query('SHOW DATABASES');
+        } catch (error) {
+          result = error;
+        }
+
+        return reply.send(({ hello: result }));
       },
     });
   }

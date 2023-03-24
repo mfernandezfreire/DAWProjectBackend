@@ -20,7 +20,7 @@
     "dotenv": "^16.0.3",
     "fastify": "^4.15.0",
     "fastify-cors": "^6.1.0",
-    "mysql": "^2.18.1"
+    "mysql2": "^2.3.3"
   },
   "devDependencies": {
     "@types/mysql": "^2.15.21",

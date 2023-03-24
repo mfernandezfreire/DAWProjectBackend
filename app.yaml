@@ -1,5 +1,6 @@
 runtime: nodejs16
 
+service: default
 env_variables:
   NODE_ENV: development
   SERVER_PORT: 8080
@@ -8,3 +9,4 @@ env_variables:
 handlers:
   - url: /.*
     script: auto
+  
