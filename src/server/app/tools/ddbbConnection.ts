@@ -26,6 +26,7 @@ export class DDBBConnection {
       config = {
         user: this.user,
         password: this.password,
+        database: this.databaseName,
         socketPath: this.socketPath,
       };
     }

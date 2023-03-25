@@ -97,4 +97,24 @@ export class UserService {
     const result = await UserModel.deleteVolunteerFromActivitie(valuesToInsert);
     reply.send(result);
   }
+
+  static async getVolunteersByActivie(
+    request: FastifyRequest,
+    reply: FastifyReply,
+  ): Promise<void> {
+    const { body } = request;
+    const valuesToInsert = Object.values(body as Objectype);
+    const result = await UserModel.getVolunteersByActivitie(valuesToInsert);
+    reply.send(result);
+  }
+
+  static async getActivitesByVolunteer(
+    request: FastifyRequest,
+    reply: FastifyReply,
+  ): Promise<void> {
+    const { body } = request;
+    const valuesToInsert = Object.values(body as Objectype);
+    const result = await UserModel.getActivitiesByVolunteer(valuesToInsert);
+    reply.send(result);
+  }
 }

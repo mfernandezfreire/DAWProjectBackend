@@ -114,4 +114,32 @@ export class UserModel {
       return error as Objectype;
     }
   }
+
+  static async getVolunteersByActivitie(valuesToQuery: string[]): Promise<Objectype> {
+    const connection = DDBBConnection.createConnection();
+    try {
+      const result = await connection.query(
+        'SELECT * FROM voluntario INNER JOIN actividades_de_voluntariado_voluntarios ON voluntario.nif = actividades_de_voluntariado_voluntarios.nif_voluntario WHERE actividades_de_voluntariado_voluntarios.id_actividad_de_voluntariado = ?',
+        valuesToQuery,
+      );
+      await DDBBConnection.closeConnection(connection);
+      return result;
+    } catch (error) {
+      return error as Objectype;
+    }
+  }
+
+  static async getActivitiesByVolunteer(valuesToQuery: string[]): Promise<Objectype> {
+    const connection = DDBBConnection.createConnection();
+    try {
+      const result = await connection.query(
+        'SELECT * FROM actividades_de_voluntariado INNER JOIN actividades_de_voluntariado_voluntarios ON actividades_de_voluntariado.id = actividades_de_voluntariado_voluntarios.id_actividad_de_voluntariado WHERE actividades_de_voluntariado_voluntarios.nif_voluntario = ?',
+        valuesToQuery,
+      );
+      await DDBBConnection.closeConnection(connection);
+      return result;
+    } catch (error) {
+      return error as Objectype;
+    }
+  }
 }

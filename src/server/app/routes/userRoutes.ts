@@ -68,7 +68,14 @@ export class UserRoutes {
       method: 'POST',
       url: '/getvolunteersbyactivitie',
       onRequest: async (request, reply) => BaseMiddelware.onRequest(request, reply),
-      handler: async (request, reply) => reply.send(reply.send(({ status: 'getvolunteersbyactivitie by cif' }))),
+      handler: async (request, reply) => UserService.getVolunteersByActivie(request, reply),
+    });
+
+    app.route({
+      method: 'POST',
+      url: '/getactivitiesbyvolunteer',
+      onRequest: async (request, reply) => BaseMiddelware.onRequest(request, reply),
+      handler: async (request, reply) => UserService.getActivitesByVolunteer(request, reply),
     });
   }
 }
