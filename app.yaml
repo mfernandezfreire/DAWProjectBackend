@@ -5,6 +5,9 @@ env_variables:
   NODE_ENV: development
   SERVER_PORT: 8080
   XFROM: dawProyectXFROM
+  user: root
+  password: nuncamais
+  socketPath: /cloudsql/daw-project-381621:europe-west1:daw-project-instance
 
 handlers:
   - url: /.*

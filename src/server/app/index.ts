@@ -1,5 +1,8 @@
 import fastify, { FastifyInstance } from 'fastify';
+import { ROUTES } from '../config/routes';
+import { AuthRoutes } from './routes/authRoutes';
 import { BaseRoute } from './routes/baseRoute';
+import { UserRoutes } from './routes/userRoutes';
 
 /**
  * @description Create fastify App
@@ -14,7 +17,8 @@ class App {
 
     // Declare a route
     await app.register(BaseRoute.setRoutes);
-    // app.get('/', async () => ({ hello: 'world' }));
+    await app.register(AuthRoutes.setRoutes, { prefix: ROUTES.auth });
+    await app.register(UserRoutes.setRoutes, { prefix: ROUTES.user });
 
     // Run the server!
     app.listen({ port, path });
