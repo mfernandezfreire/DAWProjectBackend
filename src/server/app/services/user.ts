@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { FastifyRequest, FastifyReply } from 'fastify';
 import { UserModel } from '../model/UserModel';
 
@@ -72,8 +73,8 @@ export class UserService {
     request: FastifyRequest,
     reply: FastifyReply,
   ): Promise<void> {
-    const { body } = request;
-    const valuesToInsert = Object.values(body as Objectype);
+    const { id } = request.params as { id: string };
+    const valuesToInsert = Object.values({ id } as Objectype);
     const result = await UserModel.deleteActivitie(valuesToInsert);
     reply.send(result);
   }
@@ -92,8 +93,14 @@ export class UserService {
     request: FastifyRequest,
     reply: FastifyReply,
   ): Promise<void> {
-    const { body } = request;
-    const valuesToInsert = Object.values(body as Objectype);
+    const {
+      nif_voluntario,
+      id_actividad_de_voluntariado,
+    } = request.query as { nif_voluntario: string, id_actividad_de_voluntariado: string };
+    const valuesToInsert = Object.values({
+      nif_voluntario,
+      id_actividad_de_voluntariado,
+    } as Objectype);
     const result = await UserModel.deleteVolunteerFromActivitie(valuesToInsert);
     reply.send(result);
   }

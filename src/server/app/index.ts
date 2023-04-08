@@ -1,4 +1,5 @@
 import fastify, { FastifyInstance } from 'fastify';
+import cors from '@fastify/cors'
 import { ROUTES } from '../config/routes';
 import { AuthRoutes } from './routes/authRoutes';
 import { BaseRoute } from './routes/baseRoute';
@@ -14,6 +15,12 @@ class App {
   ): Promise<void> {
     // Require the framework and instantiate it
     const app: FastifyInstance = fastify({});
+
+    app.register(cors, {
+      origin: '*',
+      methods: 'GET,POST,PUT,PATCH,DELETE',
+      allowedHeaders: 'Content-Type, x-from',
+    });
 
     // Declare a route
     await app.register(BaseRoute.setRoutes);

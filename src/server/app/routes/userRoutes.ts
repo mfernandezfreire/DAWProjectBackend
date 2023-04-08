@@ -45,7 +45,7 @@ export class UserRoutes {
 
     app.route({
       method: 'DELETE',
-      url: '/deleteactivitie',
+      url: '/deleteactivitie:id',
       onRequest: async (request, reply) => BaseMiddelware.onRequest(request, reply),
       handler: async (request, reply) => UserService.deleteActivitie(request, reply),
     });

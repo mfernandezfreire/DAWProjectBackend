@@ -105,7 +105,7 @@ export class UserModel {
     const connection = DDBBConnection.createConnection();
     try {
       const result = await connection.query(
-        'DELETE FROM actividades_de_voluntariado_voluntarios WHERE nif_voluntario = ?',
+        'DELETE FROM actividades_de_voluntariado_voluntarios WHERE nif_voluntario = ? AND id_actividad_de_voluntariado = ?',
         valuesToQuery,
       );
       await DDBBConnection.closeConnection(connection);

@@ -24,7 +24,7 @@ export class AuthModel {
     const connection = DDBBConnection.createConnection();
     try {
       const result = await connection.query(
-        'SELECT * FROM ong WHERE cif = ? AND password = ?',
+        'SELECT cif, nombre, tipo, descripcion, sector_intervencion, calle, cp, localidad, provincia, ano_creacion, telefono, correo_electronico FROM ong WHERE cif = ? AND password = ?',
         valuesToQuery,
       );
       await DDBBConnection.closeConnection(connection);
@@ -66,7 +66,7 @@ export class AuthModel {
     const connection = DDBBConnection.createConnection();
     try {
       const result = await connection.query(
-        'SELECT * FROM voluntario WHERE nif = ? AND password = ?',
+        'SELECT nif, nombre, apellidos, estudios, campo_estudio, idiomas, telefono, correo_electronico, motivacion_voluntariado FROM voluntario WHERE nif = ? AND password = ?',
         valuesToQuery,
       );
       await DDBBConnection.closeConnection(connection);
