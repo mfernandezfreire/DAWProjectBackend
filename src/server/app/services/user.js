@@ -54,7 +54,7 @@ export class UserService {
     request,
     reply,
   ) {
-    const { id } = request.params;
+    const { id } = request.query;
     const valuesToInsert = Object.values({ id });
     const result = await UserModel.deleteActivitie(valuesToInsert);
     reply.send(result);
