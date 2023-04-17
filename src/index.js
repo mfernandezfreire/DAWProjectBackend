@@ -1,9 +1,10 @@
 import { config } from 'dotenv';
-import { resolve } from 'path';
+import path, { resolve } from 'path';
 
 (async () => {
   /** Import dotenv */
-  config({ path: resolve('../env/.env') });
+  const __dirname = path.resolve();
+  config({ path: resolve(__dirname, 'env/.env') });
   /** Import Server */
   await import('./server/index.js');
 })();
