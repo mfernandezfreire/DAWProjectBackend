@@ -1,7 +1,7 @@
-import App from './app';
-import env from './config/env';
+import App from './app/index.js';
+import env from './config/env.js';
 
-(async (): Promise<void> => {
+(async () => {
   try {
     App.run(env.host, env.port);
   } catch (error) {

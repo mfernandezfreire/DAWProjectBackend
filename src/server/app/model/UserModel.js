@@ -1,23 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { DDBBConnection } from '../tools/ddbbConnection';
-
-interface Objectype {
-  [key: string]: any
-}
+import { DDBBConnection } from '../tools/ddbbConnection.js';
 
 export class UserModel {
-  static async checkActivities(): Promise<Objectype> {
+  static async checkActivities() {
     const connection = DDBBConnection.createConnection();
     try {
       const result = await connection.query('SELECT * FROM actividades_de_voluntariado');
       await DDBBConnection.closeConnection(connection);
       return result;
     } catch (error) {
-      return error as Objectype;
+      return error;
     }
   }
 
-  static async checkActivitiesByCif(valuesToQuery: string[]): Promise<Objectype> {
+  static async checkActivitiesByCif(valuesToQuery) {
     const connection = DDBBConnection.createConnection();
     try {
       const result = await connection.query(
@@ -27,11 +23,11 @@ export class UserModel {
       await DDBBConnection.closeConnection(connection);
       return result;
     } catch (error) {
-      return error as Objectype;
+      return error;
     }
   }
 
-  static async checkActivitieDetail(valuesToQuery: string[]): Promise<Objectype> {
+  static async checkActivitieDetail(valuesToQuery) {
     const connection = DDBBConnection.createConnection();
     try {
       const result = await connection.query(
@@ -41,11 +37,11 @@ export class UserModel {
       await DDBBConnection.closeConnection(connection);
       return result;
     } catch (error) {
-      return error as Objectype;
+      return error;
     }
   }
 
-  static async createActivities(valueToInsert: string[]): Promise<Objectype> {
+  static async createActivities(valueToInsert) {
     const connection = DDBBConnection.createConnection();
     try {
       const result = await connection.query(
@@ -55,11 +51,11 @@ export class UserModel {
       await DDBBConnection.closeConnection(connection);
       return result;
     } catch (error) {
-      return error as Objectype;
+      return error;
     }
   }
 
-  static async updateActivitie(valueToInsert: string[]): Promise<Objectype> {
+  static async updateActivitie(valueToInsert) {
     const connection = DDBBConnection.createConnection();
     try {
       const result = await connection.query(
@@ -69,11 +65,11 @@ export class UserModel {
       await DDBBConnection.closeConnection(connection);
       return result;
     } catch (error) {
-      return error as Objectype;
+      return error;
     }
   }
 
-  static async deleteActivitie(valuesToQuery: string[]): Promise<Objectype> {
+  static async deleteActivitie(valuesToQuery) {
     const connection = DDBBConnection.createConnection();
     try {
       const result = await connection.query(
@@ -83,11 +79,11 @@ export class UserModel {
       await DDBBConnection.closeConnection(connection);
       return result;
     } catch (error) {
-      return error as Objectype;
+      return error;
     }
   }
 
-  static async addVolunteerToActivitie(valuesToQuery: string[]): Promise<Objectype> {
+  static async addVolunteerToActivitie(valuesToQuery) {
     const connection = DDBBConnection.createConnection();
     try {
       const result = await connection.query(
@@ -97,11 +93,11 @@ export class UserModel {
       await DDBBConnection.closeConnection(connection);
       return result;
     } catch (error) {
-      return error as Objectype;
+      return error;
     }
   }
 
-  static async deleteVolunteerFromActivitie(valuesToQuery: string[]): Promise<Objectype> {
+  static async deleteVolunteerFromActivitie(valuesToQuery) {
     const connection = DDBBConnection.createConnection();
     try {
       const result = await connection.query(
@@ -111,11 +107,11 @@ export class UserModel {
       await DDBBConnection.closeConnection(connection);
       return result;
     } catch (error) {
-      return error as Objectype;
+      return error;
     }
   }
 
-  static async getVolunteersByActivitie(valuesToQuery: string[]): Promise<Objectype> {
+  static async getVolunteersByActivitie(valuesToQuery) {
     const connection = DDBBConnection.createConnection();
     try {
       const result = await connection.query(
@@ -125,11 +121,11 @@ export class UserModel {
       await DDBBConnection.closeConnection(connection);
       return result;
     } catch (error) {
-      return error as Objectype;
+      return error;
     }
   }
 
-  static async getActivitiesByVolunteer(valuesToQuery: string[]): Promise<Objectype> {
+  static async getActivitiesByVolunteer(valuesToQuery) {
     const connection = DDBBConnection.createConnection();
     try {
       const result = await connection.query(
@@ -139,7 +135,7 @@ export class UserModel {
       await DDBBConnection.closeConnection(connection);
       return result;
     } catch (error) {
-      return error as Objectype;
+      return error;
     }
   }
 }

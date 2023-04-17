@@ -1,14 +1,13 @@
-import { FastifyInstance } from 'fastify';
-import { BaseMiddelware } from '../middlewares/base';
-import { AuthService } from '../services/auth';
+import { BaseMiddelware } from '../middlewares/base.js';
+import { AuthService } from '../services/auth.js';
 
 export class AuthRoutes {
-  static async setRoutes(app: FastifyInstance): Promise<void> {
+  static async setRoutes(app) {
     AuthRoutes.getONGRoutes(app);
     AuthRoutes.getVolunteerRoutes(app);
   }
 
-  private static async getONGRoutes(app: FastifyInstance): Promise<void> {
+  static async getONGRoutes(app) {
     app.route({
       method: 'POST',
       url: '/ong/signup',
@@ -31,7 +30,7 @@ export class AuthRoutes {
     });
   }
 
-  private static async getVolunteerRoutes(app: FastifyInstance): Promise<void> {
+  static async getVolunteerRoutes(app) {
     app.route({
       method: 'POST',
       url: '/volunteer/signup',

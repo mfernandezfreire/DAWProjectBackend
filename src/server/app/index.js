@@ -1,20 +1,20 @@
-import fastify, { FastifyInstance } from 'fastify';
-import cors from '@fastify/cors'
-import { ROUTES } from '../config/routes';
-import { AuthRoutes } from './routes/authRoutes';
-import { BaseRoute } from './routes/baseRoute';
-import { UserRoutes } from './routes/userRoutes';
+import fastify from 'fastify';
+import cors from '@fastify/cors';
+import { ROUTES } from '../config/routes.js';
+import { AuthRoutes } from './routes/authRoutes.js';
+import { BaseRoute } from './routes/baseRoute.js';
+import { UserRoutes } from './routes/userRoutes.js';
 
 /**
  * @description Create fastify App
  */
 class App {
   static async run(
-    path: string,
-    port: number,
-  ): Promise<void> {
+    path,
+    port,
+  ) {
     // Require the framework and instantiate it
-    const app: FastifyInstance = fastify({});
+    const app = fastify({});
 
     app.register(cors, {
       origin: '*',

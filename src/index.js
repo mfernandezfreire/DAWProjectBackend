@@ -3,7 +3,7 @@ import { resolve } from 'path';
 
 (async () => {
   /** Import dotenv */
-  config({ path: resolve(__dirname, '../env/.env') });
+  config({ path: resolve('../env/.env') });
   /** Import Server */
-  await import('./server');
+  await import('./server/index.js');
 })();

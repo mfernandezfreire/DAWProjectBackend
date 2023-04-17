@@ -1,12 +1,11 @@
-import { FastifyInstance } from 'fastify';
-import { BaseMiddelware } from '../middlewares/base';
+import { BaseMiddelware } from '../middlewares/base.js';
 
 export class BaseRoute {
-  static async setRoutes(app: FastifyInstance): Promise<void> {
+  static async setRoutes(app) {
     BaseRoute.get(app);
   }
 
-  private static async get(app: FastifyInstance): Promise<void> {
+  static async get(app) {
     app.route({
       method: 'GET',
       url: '/',

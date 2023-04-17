@@ -1,10 +1,9 @@
-import { FastifyReply, FastifyRequest } from 'fastify';
-import env from '../../config/env';
+import env from '../../config/env.js';
 
 export class BaseMiddelware {
   static async onRequest(
-    request: FastifyRequest,
-    reply: FastifyReply,
+    request,
+    reply,
   ) {
     const secret = request.headers?.['x-from'];
     if (secret !== env.xFROM) {

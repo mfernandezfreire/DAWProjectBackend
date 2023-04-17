@@ -1,21 +1,21 @@
 import * as mysql from 'mysql2/promise';
-import env from '../../config/env';
+import env from '../../config/env.js';
 
 export class DDBBConnection {
-  private static nodeEnv = env.nodeEnv;
+  static nodeEnv = env.nodeEnv;
 
-  private static host = env.host;
+  static host = env.host;
 
-  private static user = env.ddbbUser;
+  static user = env.ddbbUser;
 
-  private static databaseName = env.ddbbName;
+  static databaseName = env.ddbbName;
 
-  private static password = env.ddbbPassword;
+  static password = env.ddbbPassword;
 
-  private static socketPath = env.ddbbSocketPath;
+  static socketPath = env.ddbbSocketPath;
 
-  public static createConnection(): mysql.Pool {
-    let config: mysql.PoolOptions = {};
+  static createConnection() {
+    let config = {};
     if (this.nodeEnv === 'DEV') {
       config = {
         host: this.host,
@@ -33,7 +33,7 @@ export class DDBBConnection {
     return mysql.createPool(config);
   }
 
-  public static closeConnection(connection: mysql.Pool) {
+  static closeConnection(connection) {
     return connection.end();
   }
 }

@@ -19,6 +19,4 @@ node_modules/
 .eslintrc.json
 nodemon.json
 package-lock.json
-tsconfig.json
 env/
-src/

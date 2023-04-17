@@ -1,13 +1,12 @@
-import { FastifyInstance } from 'fastify';
-import { BaseMiddelware } from '../middlewares/base';
-import { UserService } from '../services/user';
+import { BaseMiddelware } from '../middlewares/base.js';
+import { UserService } from '../services/user.js';
 
 export class UserRoutes {
-  static async setRoutes(app: FastifyInstance): Promise<void> {
+  static async setRoutes(app) {
     UserRoutes.getCommonActionsRoutes(app);
   }
 
-  private static async getCommonActionsRoutes(app: FastifyInstance): Promise<void> {
+  static async getCommonActionsRoutes(app) {
     app.route({
       method: 'GET',
       url: '/checkactivities',
