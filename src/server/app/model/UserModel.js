@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { DDBBConnection } from '../tools/ddbbConnection.js';
 
 export class UserModel {
