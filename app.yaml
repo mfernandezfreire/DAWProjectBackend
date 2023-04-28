@@ -7,8 +7,8 @@ env_variables:
   XFROM: dawProyectXFROM
   DDBB_USER: root
   DDBB_NAME: proyecto_fp
-  password: nuncamais
-  socketPath: /cloudsql/daw-project-381621:europe-west1:daw-project-instance
+  DDBB_PASSWORD: nuncamais
+  DDBB_SOCKEPATCH: /cloudsql/daw-project-381621:europe-west1:daw-project-instance
 
 handlers:
   - url: /.*

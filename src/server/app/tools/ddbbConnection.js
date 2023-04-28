@@ -21,6 +21,7 @@ export class DDBBConnection {
         host: this.host,
         user: this.user,
         database: this.databaseName,
+        password: this.password,
       };
     } else {
       config = {

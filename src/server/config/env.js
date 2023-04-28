@@ -5,6 +5,6 @@ export default {
   xFROM: process.env.XFROM,
   ddbbUser: process.env.DDBB_USER,
   ddbbName: process.env.DDBB_NAME,
-  ddbbSocketPath: process.env.socketPath || '',
-  ddbbPassword: process.env.password || '',
+  ddbbSocketPath: process.env.DDBB_SOCKEPATCH || '',
+  ddbbPassword: process.env.DDBB_PASSWORD || '',
 };
